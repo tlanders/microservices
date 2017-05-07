@@ -1,10 +1,7 @@
 package lci.biz.springboot.resources;
 
 import lci.biz.springboot.model.Calculation;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +14,7 @@ import java.util.List;
 public class CalculationController {
     private static final String PATTERN = "^-?+\\d+\\.?+\\d*$";
 
-    @RequestMapping("/power")
+    @RequestMapping(value = "/power", method = RequestMethod.GET)
     public Calculation pow(@RequestParam(value = "base") String b, @RequestParam(value = "exponent") String exp) {
         List<String> input = new ArrayList<>();
         input.add(b);
@@ -32,7 +29,7 @@ public class CalculationController {
         return new Calculation("power", input, output);
     }
 
-    @RequestMapping("/sqrt/{num}")
+    @RequestMapping(value = "/sqrt/{num:.+}", method = RequestMethod.GET)
     public Calculation sqrt(@PathVariable(value = "num") String num) {
         List<String> input = new ArrayList<>();
         input.add(num);
