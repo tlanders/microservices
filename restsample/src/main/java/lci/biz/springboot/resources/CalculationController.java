@@ -1,6 +1,7 @@
 package lci.biz.springboot.resources;
 
 import lci.biz.springboot.model.Calculation;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -29,5 +30,23 @@ public class CalculationController {
             output.add("base and/or exponent are not numeric");
         }
         return new Calculation("power", input, output);
+    }
+
+    @RequestMapping("/sqrt/{num}")
+    public Calculation sqrt(@PathVariable(value = "num") String num) {
+        List<String> input = new ArrayList<>();
+        input.add(num);
+
+        List<String> output = new ArrayList<>();
+        if(num != null  && num.matches(PATTERN)) {
+            try {
+                output.add(String.valueOf(Math.sqrt(Double.valueOf(num))));
+            } catch(Exception ex) {
+                output.add("num is negative");
+            }
+        } else {
+            output.add("num is not numeric");
+        }
+        return new Calculation("sqrt", input, output);
     }
 }
