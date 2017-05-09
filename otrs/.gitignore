@@ -1,6 +1,9 @@
 target/
 !.mvn/wrapper/maven-wrapper.jar
 
+### gvim  ###
+*.*~
+
 ### STS ###
 .apt_generated
 .classpath
