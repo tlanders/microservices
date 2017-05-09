@@ -24,6 +24,7 @@ public class Table extends Entity<BigInteger> {
     public String toString() {
         return "Table{" +
                 "id=" + id +
+                ", isModified='" + isModified + '\'' +
                 ", name='" + name + '\'' +
                 ", capacity=" + capacity +
                 '}';

@@ -6,6 +6,15 @@ package lci.biz.springboot.otrs.model;
 public abstract class Entity<T> {
     protected T id;
     protected String name;
+    protected boolean isModified;
+
+    public boolean isModified() {
+        return isModified;
+    }
+
+    public void setModified(boolean modified) {
+        isModified = modified;
+    }
 
     public T getId() {
         return id;

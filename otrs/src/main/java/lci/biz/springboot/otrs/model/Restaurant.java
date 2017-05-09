@@ -25,6 +25,7 @@ public class Restaurant extends Entity<String> {
     public String toString() {
         return "Restaurant{" +
                 "id=" + id +
+                ", isModified='" + isModified + '\'' +
                 ", name='" + name + '\'' +
                 ", tables=" + tables +
                 '}';
