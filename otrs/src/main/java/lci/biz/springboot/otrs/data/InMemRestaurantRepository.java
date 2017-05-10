@@ -41,7 +41,7 @@ public class InMemRestaurantRepository implements RestaurantRepository {
     }
 
     @Override
-    public Entity get(String id) {
+    public Restaurant get(String id) {
         return restaurantMap.get(id);
     }
 
