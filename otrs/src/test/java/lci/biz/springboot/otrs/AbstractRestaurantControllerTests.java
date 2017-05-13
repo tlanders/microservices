@@ -29,4 +29,16 @@ public abstract class AbstractRestaurantControllerTests {
         Assert.assertTrue(r.hasBody());
         Assert.assertEquals(RESTAURANT, r.getBody().getId());
     }
+
+    @Test
+    public void validRestaurantAdd() {
+        Logger.getGlobal().info("Start validRestaurantAdd test");
+
+        Restaurant r = new Restaurant("11", "Diner 11");
+
+        ResponseEntity<Restaurant> response = restaurantController.add(r);
+        Assert.assertEquals(HttpStatus.CREATED, response.getStatusCode());
+        Assert.assertFalse(response.hasBody());
+//        Assert.assertEquals(RESTAURANT, r.getBody().getId());
+    }
 }
