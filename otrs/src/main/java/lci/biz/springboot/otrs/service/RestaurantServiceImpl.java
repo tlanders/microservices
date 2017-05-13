@@ -52,6 +52,6 @@ public class RestaurantServiceImpl extends BaseService<Restaurant, String> imple
     @Override
     public Collection<Restaurant> findByCriteria(Map<String, List<String>> name) throws Exception {
         //TODO
-        return null;
+        throw new UnsupportedOperationException("findByCriteria not implemented yet");
     }
 }
