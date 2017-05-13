@@ -1,4 +1,4 @@
-package biz.lci.springboot.config.configclient;
+package biz.lci.springboot.config;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
