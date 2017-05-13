@@ -1,6 +1,7 @@
 package lci.biz.springboot.otrs.service;
 
 import lci.biz.springboot.otrs.data.Repository;
+import lci.biz.springboot.otrs.data.RestaurantRepository;
 import lci.biz.springboot.otrs.model.Restaurant;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,35 +16,37 @@ import java.util.Map;
 @Service("restaurantService")
 public class RestaurantServiceImpl extends BaseService<Restaurant, String> implements RestaurantService {
 
+    protected RestaurantRepository restaurantRepository;
+
     @Autowired
-    public RestaurantServiceImpl(Repository<Restaurant, String> repository) {
+    public RestaurantServiceImpl(RestaurantRepository repository) {
         super(repository);
+        this.restaurantRepository = repository;
     }
 
     @Override
     public void add(Restaurant r) throws Exception {
-        repository.add(r);
+        restaurantRepository.add(r);
     }
 
     @Override
     public void update(Restaurant r) throws Exception {
-        repository.update(r);
+        restaurantRepository.update(r);
     }
 
     @Override
     public void delete(String id) throws Exception {
-        repository.remove(id);
+        restaurantRepository.remove(id);
     }
 
     @Override
     public Restaurant findById(String name) {
-        return repository.get(name);
+        return restaurantRepository.get(name);
     }
 
     @Override
     public Collection<Restaurant> findByName(String name) throws Exception {
-        //TODO
-        return null;
+        return restaurantRepository.findByName(name);
     }
 
     @Override

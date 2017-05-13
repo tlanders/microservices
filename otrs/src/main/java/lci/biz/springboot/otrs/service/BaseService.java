@@ -6,7 +6,7 @@ import lci.biz.springboot.otrs.data.Repository;
  * Created by tlanders on 5/9/2017.
  */
 public abstract class BaseService<TE, T> {
-    protected Repository<TE, T> repository;
+    private Repository<TE, T> repository;
 
     public BaseService(Repository<TE, T> repository) {
         this.repository = repository;
